@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Commodore CD - Coming 2029</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+
+    /* Container for the console image and year overlay */
+    .hero {
+      position: relative;
+      text-align: center;
+      overflow: hidden;
+    }
+    
+    /* Console image styling */
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Big year overlay */
+    .year-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 10rem;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+      pointer-events: none;
+    }
+    
+    /* Games section styling */
+    #games-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    
+    #games-section h2 {
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+    }
+    
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+    }
+    
+    .game-card {
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      padding: 20px;
+      transition: transform 0.2s;
+    }
+    
+    .game-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .game-card img {
+      width: 100%;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+    
+    .game-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+    
+    .game-card p {
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Hero Section: Console image with big year overlay -->
+  <section class="hero">
+    <img src="commodorecd.png" alt="Commodore CD" />
+    <div class="year-overlay">2029</div>
+  </section>
+  
+  <!-- Games Section -->
+  <section id="games-section">
+    <h2>Featured Games</h2>
+    <div class="games">
+      <div class="game-card">
+        <img src="jackdragon.png" alt="Jack the 2 Tailed Dragon" />
+        <h3>Jack the 2 Tailed Dragon</h3>
+      </div>
+    </div>
+  </section>
+  
+</body>
+</html>
