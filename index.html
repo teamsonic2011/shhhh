@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Commodore CD - Coming 2029</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
     * {
       margin: 0;
       padding: 0;
@@ -12,27 +14,33 @@
     }
     
     body {
-      font-family: Arial, sans-serif;
-      background-color: #121212;
+      font-family: 'Fredoka One', cursive;
+      background: linear-gradient(135deg, #2193b0, #6dd5ed);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       color: #eaeaea;
       line-height: 1.6;
     }
 
-    /* Container for the console image and year overlay */
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Hero Section */
     .hero {
       position: relative;
       text-align: center;
       overflow: hidden;
     }
     
-    /* Console image styling */
     .hero img {
       width: 100%;
       height: auto;
       display: block;
     }
     
-    /* Big year overlay */
     .year-overlay {
       position: absolute;
       top: 50%;
@@ -44,8 +52,46 @@
       text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
       pointer-events: none;
     }
+
+    /* Countdown Section */
+    #countdown-container {
+      text-align: center;
+      padding: 40px 60px;
+      border-radius: 15px;
+      background: rgba(0, 0, 0, 0.5);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      margin: 40px auto;
+      width: fit-content;
+    }
     
-    /* Games section styling */
+    #countdown-container:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    #countdown {
+      font-size: 1.5em;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    #countdown span {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      min-width: 60px;
+    }
+
+    /* Games Section */
     #games-section {
       padding: 60px 20px;
       text-align: center;
@@ -64,7 +110,7 @@
     }
     
     .game-card {
-      background-color: #1e1e1e;
+      background-color: rgba(0, 0, 0, 0.5);
       border-radius: 8px;
       padding: 20px;
       transition: transform 0.2s;
@@ -84,20 +130,22 @@
       margin-bottom: 10px;
       font-size: 1.5rem;
     }
-    
-    .game-card p {
-      font-size: 1rem;
-    }
   </style>
 </head>
 <body>
   
-  <!-- Hero Section: Console image with big year overlay -->
+  <!-- Hero Section -->
   <section class="hero">
     <img src="commodorecd.png" alt="Commodore CD" />
     <div class="year-overlay">2029</div>
   </section>
   
+  <!-- Countdown Section -->
+  <section id="countdown-container">
+    <h1>Countdown to August 7th, 2029 @ 10:00 AM</h1>
+    <div id="countdown"></div>
+  </section>
+
   <!-- Games Section -->
   <section id="games-section">
     <h2>Featured Games</h2>
@@ -108,6 +156,29 @@
       </div>
     </div>
   </section>
-  
+
+  <script>
+    const targetDate = new Date("August 7, 2029 10:00:00").getTime();
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `<span>${days}d</span>
+         <span>${hours}h</span>
+         <span>${minutes}m</span>
+         <span>${seconds}s</span>`;
+      
+      if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML = "<span>EXPIRED</span>";
+      }
+    }, 1000);
+  </script>
 </body>
 </html>
