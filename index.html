@@ -76,19 +76,20 @@
       letter-spacing: 2px;
     }
     
+    /* Countdown size fix */
     #countdown {
-      font-size: 1.5em;
+      font-size: 1.2em; /* Reduced from 1.5em */
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 10px; /* Reduced gap for a more compact look */
     }
-
+    
     #countdown span {
       background: rgba(255, 255, 255, 0.2);
-      padding: 15px 20px;
+      padding: 10px 15px; /* Slightly smaller padding */
       border-radius: 8px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      min-width: 60px;
+      min-width: 50px; /* Adjusted width */
     }
 
     /* Games Section */
@@ -104,7 +105,7 @@
     
     .games {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Maintains proper layout */
       gap: 20px;
       padding: 0 20px;
     }
@@ -155,14 +156,16 @@
         <img src="jackdragon.png" alt="Jack the 2 Tailed Dragon" />
         <h3>Jack the 2 Tailed Dragon</h3>
       </div>
-    <div class="game-card">
+
+      <div class="game-card">
         <img src="rocknrace.png" alt="Rock 'N Race" />
         <h3>Rock 'N Race</h3>
-    <div class="game-card">
-        <img src="riddle me this.png" alt="Dinos With (Water) Guns" />
+      </div>
+
+      <div class="game-card">
+        <img src="riddlemethis.png" alt="Dinos With (Water) Guns" />
         <h3>Dinosaurs With (Water) Guns (and Dragons!)</h3>
-    </div>
-    </div>
+      </div>
     </div>
   </section>
 
